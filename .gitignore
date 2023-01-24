@@ -1,9 +1,14 @@
+.ipynb*
 myenv
 *.user
 debug
 Debug
 release
 Release
+debug_*
+Debug_*
+release_*
+Release_*
 
 # Prerequisites
 *.d
