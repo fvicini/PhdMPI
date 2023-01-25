@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include <mpi.h>
-
 int main(int argc, char **argv)
 {
     int err;
@@ -28,6 +27,7 @@ int main(int argc, char **argv)
     std::cout<< "WORLD RANK/SIZE: "<< world_rank<< "/"<< world_size<< "\t";
     std::cout<< "ROW RANK/SIZE: "<< row_rank<< "/"<< row_size<< std::endl;
     
+    // Free the communicator
     MPI_Comm_free(&row_comm);
     
     MPI_Finalize();
