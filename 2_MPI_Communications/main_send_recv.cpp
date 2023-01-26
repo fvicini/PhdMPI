@@ -20,12 +20,14 @@ int main(int argc, char **argv)
         MPI_Recv(&b, 2, MPI_FLOAT, 0, tag, MPI_COMM_WORLD, &status);
 
     std::cout<< "Process "<< process_rank<< " ";
+    std::cout<< "Status SOURCE: "<< status.MPI_SOURCE<< " ";
+    std::cout<< "TAG: "<< status.MPI_TAG<< " ";
+    std::cout<< "ERROR: "<< status.MPI_ERROR<< std::endl;
+    
+    std::cout<< "Process "<< process_rank<< " ";
     std::cout<< "a "<< a[0]<< ", "<< a[1]<< " ";
     std::cout<< "b "<< b[0]<< ", "<< b[1]<< std::endl; 
-    std::cout<< "Status SOURCE: "<< status.MPI_SOURCE<< " ";
-    std::cout<< "Status TAG "<< status.MPI_TAG<< std::endl;
     
     MPI_Finalize();
-
     return 0;
 }

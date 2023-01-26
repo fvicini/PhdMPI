@@ -32,14 +32,17 @@ int main(int argc, char **argv)
     
     MPI_Wait(&request[0], &status[0]);
     MPI_Wait(&request[1], &status[1]);
+    //MPI_Waitall(2, request, status); // alternative
     
     std::cout<< "Process "<< process_rank<< " ";
     std::cout<< "Status[0] SOURCE: "<< status[0].MPI_SOURCE<< " ";
-    std::cout<< "TAG: "<< status[0].MPI_TAG<< std::endl;
+    std::cout<< "TAG: "<< status[0].MPI_TAG<< " ";
+    std::cout<< "ERROR: "<< status[0].MPI_ERROR<< std::endl;
     
     std::cout<< "Process "<< process_rank<< " ";
     std::cout<< "Status[1] SOURCE: "<< status[1].MPI_SOURCE<< " ";
-    std::cout<< "TAG: "<< status[1].MPI_TAG<< std::endl;
+    std::cout<< "TAG: "<< status[1].MPI_TAG<< " ";
+    std::cout<< "ERROR: "<< status[1].MPI_ERROR<< std::endl;
     
     std::cout<< "Process "<< process_rank<< " ";
     std::cout<< "a "<< a[0]<< ", "<< a[1]<< " ";
