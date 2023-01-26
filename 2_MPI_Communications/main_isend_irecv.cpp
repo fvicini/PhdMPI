@@ -18,14 +18,14 @@ int main(int argc, char **argv)
     if (process_rank == 0)
     {
         a[0] = 1.0; a[1] = 2.0;
-        MPI_Isend(&a, 2, MPI_FLOAT, 1, tag, MPI_COMM_WORLD, &request[0]);
         MPI_Irecv(&b, 2, MPI_FLOAT, 1, tag + 1, MPI_COMM_WORLD, &request[1]);
+        MPI_Isend(&a, 2, MPI_FLOAT, 1, tag, MPI_COMM_WORLD, &request[0]);
     }
     else if (process_rank == 1)
     {
         b[0] = 3.0; b[1] = 4.0;
-        MPI_Isend(&b, 2, MPI_FLOAT, 0, tag + 1, MPI_COMM_WORLD, &request[0]);
         MPI_Irecv(&a, 2, MPI_FLOAT, 0, tag, MPI_COMM_WORLD, &request[1]);
+        MPI_Isend(&b, 2, MPI_FLOAT, 0, tag + 1, MPI_COMM_WORLD, &request[0]);
     }
 
     std::cout<< "Process "<< process_rank<< " waiting..."<< std::endl;
