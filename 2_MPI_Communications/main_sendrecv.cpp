@@ -17,9 +17,8 @@ int main(int argc, char **argv)
     MPI_Sendrecv(&buffer1, 1, MPI_INT, right, 123, &buffer2, 1, MPI_INT, left,
     123, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     
-    std::cout<< "Process "<< rank<< " ";
-    std::cout<< "buffer1 "<< buffer1<< " ";
-    std::cout<< "buffer2 "<< buffer2<< std::endl; 
+    std::cout<< "Process "<< buffer1<< " ";
+    std::cout<< "recvs from "<< buffer2<< std::endl; 
     
     MPI_Finalize();
     return 0;
