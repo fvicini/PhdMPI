@@ -33,13 +33,21 @@ int main(int argc, char **argv)
     {
         for (int displacement = -1; displacement < 2; displacement += 2) 
         {
-            MPI_Cart_shift(grid_comm, direction, displacement, &source, &dest);
+            int bufferSend = new_rank, bufferRecv = -1;
             
-            std::cout<< "Process "<< rank<< ": "<< " ";
-            std::cout<< "recv from "<< source<< " ";
-            std::cout<< "send to "<< dest<< " ";
+            MPI_Cart_shift(grid_comm, direction, displacement, &source, &dest);
+                        
+            MPI_Sendrecv(&bufferSend, 1, MPI_INT, source, 10, 
+                         &bufferRecv, 1, MPI_INT, dest, 10,
+                         grid_comm, MPI_STATUS_IGNORE);
+            
+            std::cout<< "Process "<< rank<< " - ";
             std::cout<< "direction "<< direction<< " ";
-            std::cout<< "displacement "<< displacement<< std::endl;
+            std::cout<< "displacement "<< displacement<< ": ";
+            std::cout<< "send to "<< dest<< " ";
+            std::cout<< "data "<< bufferSend<< "; ";
+            std::cout<< "recv from "<< source<< " ";
+            std::cout<< "data "<< bufferRecv<< std::endl;
         }
     }
            
