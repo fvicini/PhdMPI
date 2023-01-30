@@ -1,2 +1,0 @@
-# PhdMPI
-Phd MPI course
