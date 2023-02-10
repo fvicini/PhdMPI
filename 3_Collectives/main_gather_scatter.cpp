@@ -11,7 +11,7 @@ int main(int argc, char **argv)
     
     MPI_Status status;
     int a[8] = { 0 };
-    if ( rank == 0 ) 
+    if (rank == 0) 
     {
         for (unsigned int i = 0; i < 8; i++)
             a[i] = i + 1; 
