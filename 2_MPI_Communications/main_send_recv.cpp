@@ -11,7 +11,7 @@ int main(int argc, char **argv)
     
     int tag = 10;
     float a[2] = { 1.2, 3.4 };
-    float b[2] = { 0.0, 0.0 } ;
+    float b[2] = { 0.0, 0.0 };
     MPI_Status status;
     
     if (process_rank == 0)

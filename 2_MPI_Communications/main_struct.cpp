@@ -24,8 +24,8 @@ int main(int argc, char **argv)
     MPI_Datatype mpi_car_type; // the new MPI dataType
     MPI_Aint offsets[nitems]; // offset computed directly from fields
 
-    offsets[0] = offsetof(Car, Model);
-    offsets[1] = offsetof(Car, Color);
+    offsets[0] = offsetof(Car, Model); // like size_of
+    offsets[1] = offsetof(Car, Color); // like size_of
 
     // create the new dataType
     MPI_Type_create_struct(nitems, blocklengths, offsets, types, &mpi_car_type);

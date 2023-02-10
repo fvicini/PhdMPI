@@ -17,8 +17,8 @@ int main(int argc, char **argv)
     if (process_rank == 0)
     {
         a[0] = 1.0; a[1] = 2.0;
+               MPI_Send(&a, 2, MPI_FLOAT, 1, tag, MPI_COMM_WORLD);
         MPI_Recv(&b, 2, MPI_FLOAT, 1, tag + 1, MPI_COMM_WORLD, &status);
-        MPI_Send(&a, 2, MPI_FLOAT, 1, tag, MPI_COMM_WORLD);
     }
     else if (process_rank == 1)
     {
