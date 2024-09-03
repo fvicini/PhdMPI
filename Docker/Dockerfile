@@ -36,7 +36,8 @@ pip3 install numpy --no-cache-dir && \
 pip3 install scipy --no-cache-dir && \
 pip3 install matplotlib --no-cache-dir && \
 pip3 install tqdm --no-cache-dir && \
-pip3 install mpi4py --no-cache-dir
+pip3 install mpi4py --no-cache-dir && \
+pip3 install jupyterlab_rise --no-cache-dir
 
 WORKDIR /content/
 RUN git clone https://github.com/fvicini/PhdMPI.git
