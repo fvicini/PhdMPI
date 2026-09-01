@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     MPI_Type_commit(&mpi_car_type); // commit operation
 
     Car car = { 0, 0 };
-    
+
     if (rank == 0) 
     {
         car.Model = 4;
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         MPI_Recv(&car, 1, mpi_car_type, 0, tag, MPI_COMM_WORLD, &status);
         std::cout<< "Process "<< rank<< ": recv structure car"<< std::endl;
     }
-    
+
     std::cout<< "Process "<< rank<< ": car.Model "<< car.Model<< " car.Color "<< car.Color<< std::endl;
 
     MPI_Type_free(&mpi_car_type); // destroy operation

@@ -1,5 +1,5 @@
 
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 project(2_MPI_Communications LANGUAGES CXX C VERSION 1.0.0) # Name of the project
 
 set(SOURCES "" CACHE STRING "The sources list") # Variable which stores the cpp files
