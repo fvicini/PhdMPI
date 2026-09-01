@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 {    
     int provided;
     MPI_Init_thread(&argc, &argv, MPI_THREAD_SERIALIZED, &provided);
-    
+
     double message[PARTITIONS * COUNT];
     MPI_Count partitions = PARTITIONS;
     int source = 0 , dest = 1, tag = 1 , flag = 0;
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
         }
         MPI_Request_free(&request);
     }
-    
+
     MPI_Finalize();
     return 0;
 }
